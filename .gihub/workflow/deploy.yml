@@ -1,0 +1,20 @@
+name: Manually Deploy to Heroku
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: "9ac9ded9-8c98-4bcb-bf57-1796b830ed11"
+          heroku_app_name: "mirrorbotbotmaruf"
+          heroku_email: "heroku10000@gmail.com"
+          usedocker: true
+          docker_heroku_process_type: web
+          stack: "container"
+          region: "us"
+        env:
+          HD_CONFIG_FILE_URL: "https://gist.githubusercontent.com/rootedcyber83/cbdc58f84d6dda54f635b3454b2fcb27/raw/47cb95465ea5fcb1aa86852cf803455cfcff2197/config"
